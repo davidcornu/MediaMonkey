@@ -50,3 +50,9 @@ use_original_file_names: false
 # is only necessary if your MediaMonkey installation is web
 # routeable, which isn't recommended.
 use_secure_token: false
+
+# If set to true, MediaMonkey will generate a manifest.json
+# file in each of the directories containing uploaded files
+# listing the files available. This is very querying a database
+# for images is inconvenient/slow.
+generate_manifest: true
