@@ -5,11 +5,27 @@ require "media_monkey/version"
 Gem::Specification.new do |s|
   s.name        = "media_monkey"
   s.version     = MediaMonkey::VERSION
-  s.authors     = [""]
-  s.email       = [""]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.date        = Time.now.strftime('%Y-%m-%d')
+  s.authors     = ["Patrick Paul-Hus", "David Cornu"]
+  s.email       = ["pat@artfox.com", "david@artfox.com"]
+  s.homepage    = "https://github.com/Artfox/MediaMonkey"
+  s.summary     = "CDN and thumbnail generator for web apps."
+  s.description = <<-description
+    MediaMonkey is a Sinatra and Nginx powered CDN and thumbnail generator
+    for web applications. 
+      
+    Simply POST your file, and MediaMonkey will jump through hoops to generate
+    the necessary thumbnails, place them in the appropriate folder and return
+    a URL so you can access it in the future. You can also DELETE that url to
+    remove the file.
+    
+    All GET requests are served by Nginx, including a manifest.json file in each
+    directory allowing for easy access via JavaScript.
+    
+    You can also define defaults, which Nginx will serve should the file not exist.
+    This can be extremely useful for avatars where you don't necessarily want to
+    query your database to show an image or the avatar.
+  description
 
   s.rubyforge_project = "media_monkey"
 
