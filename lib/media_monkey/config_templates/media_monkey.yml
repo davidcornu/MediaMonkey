@@ -1,0 +1,52 @@
+# This is an example configuration file for MediaMonkey
+
+# Thumbnails Configuration
+# - Defines which thumbnails are generated for each of 
+#   the image files you upload. 
+# - Each size can take any of the command line options 
+#   for Graphics Magick's convert utility.
+# - The size names will be appended to the file name
+#
+# For more information about those options please see
+# http://www.graphicsmagick.org/convert.html#conv-opti
+#
+# This configuration will resize images to fit within
+# at least one of the bounds, and crop at the center.
+thumbnails:
+  small:
+    resize: 50x50^
+    gravity: center
+    crop: 50x50+0+0
+    repage: true
+    quality: 80
+  medium: 
+    resize: 100x100^
+    gravity: center
+    crop: 100x100+0+0
+    repage: true
+    quality: 80
+  large:
+    resize: 150x150^
+    gravity: center
+    crop: 150x150+0+0
+    repage: true
+    quality: 80
+
+# If set to true, MediaMonkey will keep the original image
+# converted to the correct format and prepended with _original
+keep_original: true
+
+# The global format used to store images. All uploaded images
+# will be converted to this format INCLUDING the original.
+image_format: png
+
+# If set to true, MediaMonkey will use the original filename
+# as the basis for all other names. The default behavior is to
+# use a hash as the file name, prepended by the size.
+use_original_file_names: false
+
+# If set to a string, MediaMonkey will block all uploads that
+# do not include this token under the 'token' parameter. This
+# is only necessary if your MediaMonkey installation is web
+# routeable, which isn't recommended.
+use_secure_token: false
