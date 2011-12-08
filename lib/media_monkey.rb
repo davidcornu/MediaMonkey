@@ -1,4 +1,5 @@
+require "media_monkey/version"
+
 module MediaMonkey
-  class Server
-  end
+  # Your code goes here...
 end
