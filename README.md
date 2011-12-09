@@ -29,23 +29,18 @@ __Media is uploaded to__
 
 __Images can be accessed through__
 
-`GET /:resource/:id/(:type|:name)_:size.:extension`
+`GET /:resource/:id/(:type|:name)/:size.:extension`
 
 __Other files can be accessed through__
 
-`GET /:resource/:id/:name.:extension`
+`GET /:resource/:id/:name/original.:extension`
 
 __If the file doesn't exist, Nginx will try the following__
 
 If the size is present
 
-- With type: `GET /:ressource/defaults/:type_:size.:extension`
-- Without: `GET /:ressource/defaults/default_:size.:extension`
-
-Otherwise
-
-- With type: `GET /:ressource/defaults/:type.:extension`
-- Without: `GET /:ressource/defaults/default.:extension`
+- With type: `GET /:ressource/defaults/type/:size.:extension`
+- Without: `GET /:ressource/defaults/:size.:extension`
 
 If none of these exist, a 404 will be returned.
 
