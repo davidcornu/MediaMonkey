@@ -52,3 +52,7 @@ If none of these exist, a 404 will be returned.
 __Media can be deleted through__
 
 `DELETE /:ressource/:id/(:name|:type)`
+
+__Non public media__
+
+TODO
