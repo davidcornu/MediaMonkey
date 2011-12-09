@@ -39,16 +39,17 @@ http {
 
   server {
     listen 80;
-
-    # Serve Media Files
+    
     location / {
       expires max;
       access_log off;
       root <%= # MediaMonkey Installation Directory %>;
+      # TODO: Needs fixing
+      try_files $uri $uri/index.html $uri.html 404;
+      error_page 405 = @media_monkey;
     }
 
-    # General Static Files
-    location / {
+    location @media_monkey {
       proxy_pass        <%= # MediaMonkey Server URL %>;
       proxy_set_header  X-Real-IP $remote_addr;
       proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;

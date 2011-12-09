@@ -12,3 +12,43 @@ You can also define defaults, which Nginx will serve should the file not exist. 
 #Warning
 
 This is currently a work in progress, and far from production-ready. Contributions are welcome.
+
+#Behavior
+
+__Media is uploaded to__
+
+`POST /:resource/:id/(:type)`
+  
+- If the resource is an image
+	- It will be converted to the specified format
+	- Thumbnails will be generated in each of the defined sizes
+- If the type is defined
+	- Naming will be based on the type
+	- Otherwise the name or a hash will be used
+	- If a file already exists for that type, the files will be replaced
+
+__Images can be accessed through__
+
+`GET /:resource/:id/(:type|:name)_:size.:extension`
+
+__Other files can be accessed through__
+
+`GET /:resource/:id/:name.:extension`
+
+__If the file doesn't exist, Nginx will try the following__
+
+If the size is present
+
+- With type: `GET /:ressource/defaults/:type_:size.:extension`
+- Without: `GET /:ressource/defaults/default_:size.:extension`
+
+Otherwise
+
+- With type: `GET /:ressource/defaults/:type.:extension`
+- Without: `GET /:ressource/defaults/default.:extension`
+
+If none of these exist, a 404 will be returned.
+
+__Media can be deleted through__
+
+`DELETE /:ressource/:id/(:name|:type)`
