@@ -1,5 +1,9 @@
 # This is an example configuration file for MediaMonkey
 
+# Base directory
+# All files will be stored here
+base_directory: /Users/davidcornu/development/mmfiles
+
 # Thumbnails Configuration
 # - Defines which thumbnails are generated for each of 
 #   the image files you upload. 
@@ -17,24 +21,17 @@ thumbnails:
     resize: 50x50^
     gravity: center
     crop: 50x50+0+0
-    repage: true
     quality: 80
   medium: 
     resize: 100x100^
     gravity: center
     crop: 100x100+0+0
-    repage: true
     quality: 80
   large:
     resize: 150x150^
     gravity: center
     crop: 150x150+0+0
-    repage: true
     quality: 80
-
-# If set to true, MediaMonkey will keep the original image
-# converted to the correct format and prepended with _original
-keep_original: true
 
 # The global format used to store images. All uploaded images
 # will be converted to this format INCLUDING the original.
@@ -56,3 +53,6 @@ use_secure_token: false
 # listing the files available. This is very querying a database
 # for images is inconvenient/slow.
 generate_manifest: true
+
+# Sets the path to the Graphics Magick executable
+gm_path: /usr/local/bin/gm
